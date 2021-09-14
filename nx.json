@@ -1,0 +1,42 @@
+{
+  "npmScope": "gravity-control-games",
+  "affected": {
+    "defaultBase": "master"
+  },
+  "implicitDependencies": {
+    "package.json": {
+      "dependencies": "*",
+      "devDependencies": "*"
+    },
+    ".eslintrc.json": "*"
+  },
+  "tasksRunnerOptions": {
+    "default": {
+      "runner": "@nrwl/nx-cloud",
+      "options": {
+        "cacheableOperations": ["build", "lint", "test", "e2e"],
+        "accessToken": "YTQwYTNhOTgtMmM0Yi00NDhmLTg1MGQtYzc1ODU4OGE1YzRmfHJlYWQtd3JpdGU="
+      }
+    }
+  },
+  "targetDependencies": {
+    "build": [
+      {
+        "target": "build",
+        "projects": "dependencies"
+      }
+    ]
+  },
+  "projects": {
+    "game-elements": {
+      "tags": []
+    },
+    "gravity-proto-1": {
+      "tags": []
+    },
+    "gravity-proto-1-e2e": {
+      "tags": [],
+      "implicitDependencies": ["gravity-proto-1"]
+    }
+  }
+}
