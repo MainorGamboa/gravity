@@ -13,6 +13,9 @@ export class Ball extends Phaser.Physics.Matter.Image {
     this.setCircle(10);
     this.setFriction(0.005);
     this.setBounce(1);
+    // this.restitution = 0.6;
+    // this.frictionAir = 0; 
+    // this.mass: 0.1;
     currentScene.matter.world.scene.add.existing(this);
   }
 }

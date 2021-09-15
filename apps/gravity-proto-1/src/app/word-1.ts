@@ -3,6 +3,8 @@ import { Paddle, Ball } from '@gravity-control-games/game-elements';
 
 export default class Word1 extends Phaser.Scene {
   paddle: Paddle;
+  width = 800;
+  height = 600;
   constructor() {
     super({ key: 'Word-1-directional-gravity' });
   }
@@ -13,13 +15,11 @@ export default class Word1 extends Phaser.Scene {
   }
 
   create() {
-    const width = 800;
-    const height = 600;
     this.matter.world.setBounds(
+      0 + 10,
       0,
-      0,
-      width,
-      height,
+      this.width,
+      this.height - 10,
       32,
       true,
       true,
@@ -29,7 +29,7 @@ export default class Word1 extends Phaser.Scene {
 
     //  Add in a stack of balls
 
-    this.paddle = new Paddle(this, width * 0.5, height * 0.9, 'paddle', {
+    this.paddle = new Paddle(this, this.width * 0.5, this.height - 6, 'paddle', {
       // isStatic: true,
       chamfer: {
         radius: 15,

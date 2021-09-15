@@ -19,6 +19,7 @@ function startGame() {
     const game = new Phaser.Game(config);
 
     return game
+    
 }
 
   export default startGame;
