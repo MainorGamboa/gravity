@@ -15,26 +15,21 @@ export default class Word1 extends Phaser.Scene {
   }
 
   create() {
-    this.matter.world.setBounds(
+    this.physics.world.setBounds(
       0 + 10,
       0,
       this.width,
       this.height - 10,
-      32,
+    //   32,
       true,
       true,
       false,
-      true
+    //   true
     );
 
     //  Add in a stack of balls
 
-    this.paddle = new Paddle(this, this.width * 0.5, this.height - 6, 'paddle', {
-      // isStatic: true,
-      chamfer: {
-        radius: 15,
-      },
-    });
+    this.paddle = new Paddle(this, this.width * 0.5, this.height - 6, 'paddle');
 
     for (let i = 0; i < 64; i++) {
       new Ball(

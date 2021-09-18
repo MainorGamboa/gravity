@@ -6,7 +6,7 @@ enum directionEnum {
   RIGHT = 'right',
   LEFT = 'left',
 }
-export class Paddle extends Phaser.Physics.Matter.Image {
+export class Paddle extends Phaser.Physics.Arcade.Sprite {
   currentScene: Phaser.Scene;
   direction: directionEnum = directionEnum.DOWN;
   constructor(
@@ -14,13 +14,12 @@ export class Paddle extends Phaser.Physics.Matter.Image {
     x: number,
     y: number,
     texture: string,
-    config?: Phaser.Types.Physics.Matter.MatterBodyConfig
   ) {
-    super(currentScene.matter.world, x, y, texture, undefined, config);
+    super(currentScene, x, y, texture, undefined);
 
-    this.setSensor(true);
-    this.setIgnoreGravity(true);
-    currentScene.matter.world.scene.add.existing(this);
+    // this.setSensor(true);
+    // this.setIgnoreGravity(true);
+    currentScene.physics.world.scene.add.existing(this);
     this.currentScene = currentScene;
   }
 
